@@ -4,18 +4,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'pwd'
                 sh 'ls -lah'
             }
         }
-        stage('Test') {
+        stage('Publish'){
             steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                archiveArtifacts artifacts: '*'
             }
         }
     }
